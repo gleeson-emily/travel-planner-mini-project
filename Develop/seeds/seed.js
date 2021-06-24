@@ -1,5 +1,5 @@
 const sequelize = require('../config/connection');
-const { Traveller, Location, Trip } = require('../models');
+const { Traveller, Locations, Trip } = require('../models');
 
 const travellerSeedData = require('./travellerSeedData.json');
 const locationSeedData = require('./locationSeedData.json');
@@ -9,7 +9,7 @@ const seedDatabase = async () => {
 
   const travellers = await Traveller.bulkCreate(travellerSeedData);
 
-  const locations = await Location.bulkCreate(locationSeedData);
+  const locations = await Locations.bulkCreate(locationSeedData);
 
   // Create trips at random
   for (let i = 0; i < 10; i++) {
